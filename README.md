@@ -1,6 +1,6 @@
 # OAuth2-Dotnet-UsingSDK
-OAuth2 Web Forms Sample app for Dotnet
-The Intuit Developer team has written this OAuth 2.0 Sample App in .Net(C#) to provide working examples of OAuth 2.0 concepts, and how to integrate with Intuit endpoints.
+OAuth2 Web Forms Sample app for Dotnet for Payments API
+The Intuit Developer team has written this OAuth 2.0 Sample App in .Net(C#) to provide working examples of OAuth 2.0 concepts, and how to integrate with Intuit endpoints and make Pyaments API calls.
 
 **Getting Started**
 
@@ -19,12 +19,13 @@ Clone this repository/Download the sample app.
 
 All configuration for this app is located in web.config. Locate and open this file.
 
-We will need to update 4 items:
+We will need to update 5 items:
 
 clientId
 clientSecret
 redirectUri
 logPath
+paymentsBaseUrl
 
 First 3 values must match exactly with what is listed in your app settings on developer.intuit.com. If you haven't already created an app, you may do so there. Please read on for important notes about client credentials, scopes, and redirect urls.
 logPath should be the location of a physical path on your disk.
@@ -41,7 +42,7 @@ You'll have to set a Redirect URI in both 'web.config' and the Developer Portal 
 
 Use the scopes as shown in the sample app or docs for different flows.
 
-It is important to ensure that the scopes your are requesting match the scopes allowed on the Developer Portal. For this sample app to work by default, your app on Developer Portal must support both Accounting and Payment scopes. If you'd like to support Accounting only, simply remove thecom.intuit.quickbooks.payment scope from web.config.
+It is important to ensure that the scopes your are requesting match the scopes allowed on the Developer Portal. For this sample app to work by default, your app on Developer Portal must support both Accounting and Payment scopes. If you'd like to support Accounting only, simply remove the OidcScopes.Payment.GetStringValue() scope from Default.aspx.cs.If you would like to support Payments only then simply remove the OidcScopes.Accounting.GetStringValue() scope from Default.aspx.cs. You can keep boht if you want to make calls to both api. In the sample we have just used payments scope.
 
 **Run your app!**
 
@@ -52,7 +53,7 @@ All flows should work. The sample app supports the following flows:
 
 **Sign In With Intuit** - this flow requests OpenID only scopes. Feel free to change the scopes being requested in web.config. After authorizing (or if the account you are using has already been authorized for this app), the redirect URL will parse the JWT ID token, and make an API call to the user information endpoint.
 
-**Connect To QuickBooks** - this flow requests non-OpenID scopes. You will be able to make a QuickBooks API sample call (using the OAuth2 token) on the /connected landing page.
+**Connect To QuickBooks** - this flow requests non-OpenID scopes. You will be able to make a Payments API sample call (using the OAuth2 token) on the /connected landing page.
 
 **Get App Now (Openid)** - this flow requests both OpenID and non-OpenID scopes. It simulates the request that would come once a user clicks "Get App Now" on the apps.com website, after you publish your app.
 
