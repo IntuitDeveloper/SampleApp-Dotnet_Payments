@@ -20,8 +20,6 @@ using System.Configuration;
 using System.Web;
 using Intuit.Ipp.OAuth2PlatformClient;
 using System.Threading.Tasks;
-//using Intuit.Ipp.Security;
-//using Intuit.Ipp.Exception;
 using Newtonsoft.Json.Linq;
 
 namespace OAuth2_Dotnet_UsingSDK
@@ -693,6 +691,10 @@ namespace OAuth2_Dotnet_UsingSDK
             // Call RefreshToken endpoint to get new access token when you recieve a 401 Status code
             TokenResponse refereshtokenCallResponse = await tokenClient.RequestRefreshTokenAsync(refresh_token);
             output("Access token refreshed.");
+            dictionary["accessToken"] = refereshtokenCallResponse.AccessToken;
+            dictionary["refreshToken"] = refereshtokenCallResponse.RefreshToken;
+
+            output("Dictionary keys updated.");
             return refereshtokenCallResponse;
 
 
@@ -977,7 +979,7 @@ namespace OAuth2_Dotnet_UsingSDK
             }
             catch (Exception ex)
             {
-                if (ex.Message == "UnAuthorized-401")
+                if (ex.Message == "The remote server returned an error: (401) Unauthorized.")
                 {
 
                     output("Invalid/Expired Access Token.");
@@ -1015,8 +1017,7 @@ namespace OAuth2_Dotnet_UsingSDK
 
             // build the request
             string cardTokenRequestBody = "{\"card\":{\"expYear\":\"2020\",\"expMonth\":\"02\",\"address\":{\"region\":\"CA\",\"postalCode\":\"94086\",\"streetAddress\":\"1130 Kifer Rd\",\"country\":\"US\",\"city\":\"Sunnyvale\"},\"name\":\"emulate=0\",\"cvc\":\"123\",\"number\":\"4111111111111111\"}}";
-
-
+           
             // send the request (token api call does not requires Authorization header, rest all payments call do)
             HttpWebRequest cardTokenRequest = (HttpWebRequest)WebRequest.Create(uri);
             cardTokenRequest.Method = "POST";           
@@ -1067,12 +1068,13 @@ namespace OAuth2_Dotnet_UsingSDK
 
             // build the request
             string cardChargeRequestBody = "{\"amount\": \"10.55\",\"token\":\""+ cardToken+ "\",\"currency\": \"USD\"}";
-
+            //string cardChargeRequestBody= "{\"amount\":\"10.55\",\"token\":\""+ cardToken + "\",\"currency\":\"USD\",\"context\":{\"mobile\":\"false\",\"ecommerce\":\"true\"}}";
 
             // send the request
             HttpWebRequest cardChargeRequest = (HttpWebRequest)WebRequest.Create(uri);
             cardChargeRequest.Method = "POST";
-            cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", access_token));
+            //cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", access_token));
+            cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", "23423"));
             cardChargeRequest.ContentType = "application/json";
             cardChargeRequest.Accept = "application/json";
             cardChargeRequest.Headers.Add("Request-Id", Guid.NewGuid().ToString());//assign unique guid everytime
