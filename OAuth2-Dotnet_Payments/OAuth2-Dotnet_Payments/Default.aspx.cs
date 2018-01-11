@@ -1063,18 +1063,18 @@ namespace OAuth2_Dotnet_UsingSDK
             JObject jsonDecodedResponse;
 
             string paymentsBaseUrl = PaymentsBaseUrl; //Payments sandbox url used here. Change to Prod url(https://api.intuit.com/) if prod keys are used in the config.
-            string cardChargeEndpoint = "/quickbooks/v4/payments/charges";
+            string cardChargeEndpoint = "quickbooks/v4/payments/charges";
             string uri = paymentsBaseUrl + cardChargeEndpoint;
 
             // build the request
-            string cardChargeRequestBody = "{\"amount\": \"10.55\",\"token\":\""+ cardToken+ "\",\"currency\": \"USD\"}";
-            //string cardChargeRequestBody= "{\"amount\":\"10.55\",\"token\":\""+ cardToken + "\",\"currency\":\"USD\",\"context\":{\"mobile\":\"false\",\"ecommerce\":\"true\"}}";
-
+            //string cardChargeRequestBody = "{\"amount\": \"10.55\",\"token\":\""+ cardToken+ "\",\"currency\": \"USD\"}";
+            string cardChargeRequestBody= "{\"amount\":\"10.55\",\"token\":\""+ cardToken + "\",\"currency\":\"USD\",\"context\":{\"mobile\":\"false\",\"isEcommerce\":\"true\"}}";
+            
             // send the request
             HttpWebRequest cardChargeRequest = (HttpWebRequest)WebRequest.Create(uri);
             cardChargeRequest.Method = "POST";
-            //cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", access_token));
-            cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", "23423"));
+            cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", access_token));
+            //cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", "23423"));
             cardChargeRequest.ContentType = "application/json";
             cardChargeRequest.Accept = "application/json";
             cardChargeRequest.Headers.Add("Request-Id", Guid.NewGuid().ToString());//assign unique guid everytime

@@ -93,7 +93,7 @@
     </p>  
      <asp:ImageButton id="btnPaymentsAPICall" runat="server" AlternateText="Call Payments API"
            ImageAlign="left"
-       
+           ImageUrl="Images/button_payments-api-call.png" 
            OnClick="ImgPaymentsAPICall_Click" CssClass="font-size:14px; border: 1px solid grey; padding: 10px; color: red" Height="40px" Width="200px"/>
      <br /><br />
      <p>
@@ -104,7 +104,7 @@
        <br /><br /><br />
      <asp:ImageButton id="btnRevoke" runat="server" AlternateText="Revoke Tokens"
            ImageAlign="left"
-           
+           ImageUrl="Images/button_revoke-tokens.png"
            OnClick="ImgRevoke_Click" CssClass="font-size:14px; border: 1px solid grey; padding: 10px; color: red" Height="40px" Width="200px"/>
        <br /><br /><br />
    
