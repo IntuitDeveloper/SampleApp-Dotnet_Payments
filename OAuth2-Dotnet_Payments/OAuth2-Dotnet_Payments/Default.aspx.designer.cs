@@ -22,31 +22,13 @@ namespace OAuth2_Dotnet_UsingSDK {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// connect control.
+        /// homeButtons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl connect;
-        
-        /// <summary>
-        /// btnSIWI control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnSIWI;
-        
-        /// <summary>
-        /// btnC2QB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnC2QB;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeButtons;
         
         /// <summary>
         /// btnOpenId control.
@@ -58,13 +40,31 @@ namespace OAuth2_Dotnet_UsingSDK {
         protected global::System.Web.UI.WebControls.ImageButton btnOpenId;
         
         /// <summary>
-        /// revoke control.
+        /// btnC2QB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl revoke;
+        protected global::System.Web.UI.WebControls.ImageButton btnC2QB;
+        
+        /// <summary>
+        /// btnGetAppNow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnGetAppNow;
+        
+        /// <summary>
+        /// connected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl connected;
         
         /// <summary>
         /// lblConnected control.
@@ -82,7 +82,7 @@ namespace OAuth2_Dotnet_UsingSDK {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnPaymentsAPICall;
+        protected global::System.Web.UI.WebControls.Button btnPaymentsAPICall;
         
         /// <summary>
         /// lblPaymentsCall control.
@@ -100,6 +100,6 @@ namespace OAuth2_Dotnet_UsingSDK {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnRevoke;
+        protected global::System.Web.UI.WebControls.Button btnRevoke;
     }
 }
