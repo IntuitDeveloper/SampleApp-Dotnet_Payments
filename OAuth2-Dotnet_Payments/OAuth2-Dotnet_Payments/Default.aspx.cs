@@ -344,8 +344,8 @@ namespace OAuth2_Dotnet_UsingSDK
             // send the request
             HttpWebRequest cardChargeRequest = (HttpWebRequest)WebRequest.Create(uri);
             cardChargeRequest.Method = "POST";
-            if (dictionary["access_token"] != null)
-                cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", dictionary["access_token"]));
+            if (dictionary["accessToken"] != null)
+                cardChargeRequest.Headers.Add(string.Format("Authorization: Bearer {0}", dictionary["accessToken"]));
             else
                 output("Access token not found.");
             cardChargeRequest.ContentType = "application/json";
