@@ -328,9 +328,6 @@ namespace OAuth2_Dotnet_UsingSDK
         /// Execute Charge on the card
         /// </summary>
         /// <param name="cardToken"></param>
-        /// <param name="realmId"></param>
-        /// <param name="access_token"></param>
-        /// <param name="refresh_token"></param>
         /// <returns>JObject</returns>
         public JObject createPaymentsCharge(string cardToken)
         {
