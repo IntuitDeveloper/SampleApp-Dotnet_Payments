@@ -2,7 +2,7 @@
 
 # SampleApp-Dotnet_Payments
 OAuth2 Web Forms Sample app for Dotnet for Payments API
-The Intuit Developer team has written this OAuth 2.0 Sample App in .Net(C#) to provide working examples of OAuth 2.0 concepts, and how to integrate with Intuit endpoints and make Pyaments API calls.
+The Intuit Developer team has written this OAuth 2.0 Sample App in .Net(C#) to provide working examples of OAuth 2.0 concepts, and how to integrate with Intuit endpoints and make Payments API calls.
 
 ## Getting Started
 
